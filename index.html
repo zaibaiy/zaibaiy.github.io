@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>复仇</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1a1a1a;
+  color: #a0a0a0;
+  font-family: "Segoe UI", "Microsoft YaHei", "PingFang SC", sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+a {
+  color: #90a0b0;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #a0b0c0;
+  text-decoration: underline;
+}
+
+header {
+  background-color: #1a1a1a;
+  border-bottom: 1px solid #333333;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.site-name {
+  color: #90a0b0;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.email {
+  color: #90a0b0;
+  font-size: 13px;
+}
+
+.email a {
+  color: #90a0b0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+.toc {
+  margin-bottom: 60px;
+}
+
+.toc h2 {
+  color: #90a0b0;
+  font-size: 18px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #333333;
+}
+
+.toc-list {
+  list-style: none;
+}
+
+.toc-list li {
+  margin-bottom: 12px;
+}
+
+.toc-list a {
+  color: #a0a0a0;
+  font-size: 16px;
+  display: block;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+}
+
+.toc-list a:hover {
+  background-color: #252525;
+  border-color: #333333;
+  text-decoration: none;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #333333;
+  margin: 40px 0;
+}
+
+.article {
+  margin-bottom: 60px;
+  padding-top: 20px;
+}
+
+.article-anchor {
+  display: block;
+  position: relative;
+  top: -60px;
+  visibility: hidden;
+}
+
+.article h3 {
+  color: #d0d0d0;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.article pre {
+  background-color: #252525;
+  border: 1px solid #333333;
+  border-radius: 4px;
+  padding: 20px;
+  color: #a0a0a0;
+  font-size: 14px;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: "Consolas", "Monaco", "Courier New", monospace;
+}
+
+.back-to-top {
+  display: block;
+  margin-top: 20px;
+  font-size: 13px;
+  color: #606060;
+}
+
+.back-to-top:hover {
+  color: #808080;
+}
+
+footer {
+  text-align: center;
+  padding: 40px;
+  color: #606060;
+  font-size: 12px;
+  border-top: 1px solid #333333;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="site-name">复仇</div>
+  <div class="email"><a href="mailto:abc@126.com">abc@126.com</a></div>
+</header>
+
+<div class="container">
+
+  <!-- 目录区 -->
+  <div class="toc">
+    <h2>目录</h2>
+    <ul class="toc-list">
+      <!-- ===== 在此添加新文章标题 ===== -->
+      <li><a href="#article-1">test</a></li>
+      <li><a href="#article-2">test</a></li>
+      <li><a href="#article-3">test</a></li>
+    </ul>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 正文区 -->
+  <!-- ===== 在此添加新文章正文 ===== -->
+
+  <div class="article">
+    <a class="article-anchor" name="article-1"></a>
+    <h3>test</h3>
+    <pre>test</pre>
+    <a class="back-to-top" href="#">返回顶部</a>
+  </div>
+
+  <div class="article">
+    <a class="article-anchor" name="article-2"></a>
+    <h3>test</h3>
+    <pre>test</pre>
+    <a class="back-to-top" href="#">返回顶部</a>
+  </div>
+
+  <div class="article">
+    <a class="article-anchor" name="article-3"></a>
+    <h3>test</h3>
+    <pre>test</pre>
+    <a class="back-to-top" href="#">返回顶部</a>
+  </div>
+
+</div>
+
+<footer>
+  &copy; 复仇
+</footer>
+
+</body>
+</html>
