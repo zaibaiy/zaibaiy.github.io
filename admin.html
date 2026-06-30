@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>管理 · Photolog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="admin-body">
+
+  <section id="login-view" class="login-view">
+    <div class="login-card">
+      <h1 class="login-title">管理后台</h1>
+      <p class="login-sub">使用 GitHub Personal Access Token 登录</p>
+      <form id="login-form">
+        <label>
+          <span>Token</span>
+          <input type="password" id="token" required autocomplete="off" placeholder="github_pat_...">
+        </label>
+        <label>
+          <span>Owner</span>
+          <input type="text" id="owner" required autocomplete="off" placeholder="用户名或组织名">
+        </label>
+        <label>
+          <span>Repo</span>
+          <input type="text" id="repo" required autocomplete="off" placeholder="仓库名">
+        </label>
+        <label>
+          <span>Branch</span>
+          <input type="text" id="branch" value="main" autocomplete="off">
+        </label>
+        <button type="submit" class="btn-primary">登录</button>
+        <p id="login-error" class="error-msg"></p>
+      </form>
+    </div>
+  </section>
+
+  <section id="admin-view" class="admin-view hidden">
+    <header class="admin-header">
+      <h1 class="admin-h1">管理后台</h1>
+      <div class="admin-actions">
+        <button id="refresh-btn" class="btn-ghost" type="button">刷新列表</button>
+        <button id="logout-btn" class="btn-ghost" type="button">退出登录</button>
+      </div>
+    </header>
+
+    <main class="admin-grid">
+      <div class="upload-panel">
+        <h2 class="panel-title">上传新照片</h2>
+        <div id="drop-zone" class="drop-zone">
+          <p>拖拽照片到这里</p>
+          <button type="button" class="btn-ghost" id="pick-btn">或点击选择</button>
+          <input type="file" id="file-input" accept="image/*" multiple hidden>
+        </div>
+        <div id="pending-list" class="pending-list"></div>
+        <div id="upload-bar" class="upload-bar hidden">
+          <button id="upload-btn" class="btn-primary" type="button">上传全部</button>
+        </div>
+      </div>
+
+      <div class="library-panel">
+        <h2 class="panel-title">
+          照片库
+          <span id="photo-count" class="panel-count"></span>
+        </h2>
+        <div id="photo-grid" class="photo-grid"></div>
+      </div>
+    </main>
+  </section>
+
+  <div id="edit-modal" class="modal hidden">
+    <div class="modal-card">
+      <h3>编辑元数据</h3>
+      <form id="edit-form">
+        <label>
+          <span class="field-label">日期</span>
+          <input type="date" id="edit-date">
+        </label>
+        <label>
+          <span class="field-label">相机</span>
+          <input type="text" id="edit-camera">
+        </label>
+        <label>
+          <span class="field-label">镜头</span>
+          <input type="text" id="edit-lens">
+        </label>
+        <label>
+          <span class="field-label">注释</span>
+          <textarea id="edit-note"></textarea>
+        </label>
+        <div class="modal-actions">
+          <button type="button" id="edit-cancel" class="btn-ghost">取消</button>
+          <button type="submit" class="btn-primary">保存</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/exifr/dist/full.umd.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
