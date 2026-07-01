@@ -85,15 +85,6 @@ input, textarea { font-family: inherit; }
   opacity: 0.7;
 }
 
-.progress-line.animating {
-  animation: lineProgress 9s linear forwards;
-}
-
-@keyframes lineProgress {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
-}
-
 .meta-bar {
   position: fixed;
   bottom: 5vh;
@@ -149,15 +140,6 @@ input, textarea { font-family: inherit; }
   stroke-dashoffset: 87.96;
   transform: rotate(-90deg);
   transform-origin: center;
-}
-
-.ring-fg.animating {
-  animation: ringProgress 9s linear forwards;
-}
-
-@keyframes ringProgress {
-  from { stroke-dashoffset: 87.96; }
-  to { stroke-dashoffset: 0; }
 }
 
 @media (max-width: 768px) {

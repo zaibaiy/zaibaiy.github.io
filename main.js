@@ -9,6 +9,8 @@
   var queueIndex = 0;
   var currentLayer = 'a';
   var advanceTimer = null;
+  var ringAnim = null;
+  var lineAnim = null;
 
   var layerA = document.getElementById('layer-a');
   var layerB = document.getElementById('layer-b');
@@ -73,11 +75,18 @@
   }
 
   function startProgress() {
-    ringFg.classList.remove('animating');
-    progressLine.classList.remove('animating');
-    void ringFg.offsetWidth;
-    ringFg.classList.add('animating');
-    progressLine.classList.add('animating');
+    if (ringAnim) ringAnim.cancel();
+    if (lineAnim) lineAnim.cancel();
+
+    ringAnim = ringFg.animate(
+      [{ strokeDashoffset: '87.96' }, { strokeDashoffset: '0' }],
+      { duration: 9000, easing: 'linear', fill: 'forwards' }
+    );
+
+    lineAnim = progressLine.animate(
+      [{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }],
+      { duration: 9000, easing: 'linear', fill: 'forwards' }
+    );
   }
 
   function showPhoto(photo) {
