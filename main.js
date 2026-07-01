@@ -2,6 +2,8 @@
   'use strict';
 
   var DURATION = 9000;
+  var IMG_TIMEOUT = 12000;
+  var JSON_TIMEOUT = 10000;
   var photos = [];
   var queue = [];
   var queueIndex = 0;
@@ -31,7 +33,13 @@
   }
 
   function loadPhotos() {
-    return fetch('photos.json?t=' + Date.now(), { cache: 'no-store' })
+    var timeout = new Promise(function (_, reject) {
+      setTimeout(function () { reject(new Error('timeout')); }, JSON_TIMEOUT);
+    });
+    return Promise.race([
+      fetch('photos.json?t=' + Date.now(), { cache: 'no-store' }),
+      timeout
+    ])
       .then(function (res) {
         if (!res.ok) return { photos: [] };
         return res.json();
@@ -77,7 +85,20 @@
     var nextEl = nextLayer === 'a' ? layerA : layerB;
     var currEl = currentLayer === 'a' ? layerA : layerB;
 
-    nextEl.onload = function () {
+    var settled = false;
+    var loadTimeout = setTimeout(function () {
+      if (settled) return;
+      settled = true;
+      clearTimeout(advanceTimer);
+      advanceTimer = setTimeout(advance, 500);
+    }, IMG_TIMEOUT);
+
+    var preloader = new Image();
+    preloader.onload = function () {
+      if (settled) return;
+      settled = true;
+      clearTimeout(loadTimeout);
+      nextEl.src = photo.path;
       nextEl.classList.add('active');
       currEl.classList.remove('active');
       currentLayer = nextLayer;
@@ -86,11 +107,14 @@
       clearTimeout(advanceTimer);
       advanceTimer = setTimeout(advance, DURATION);
     };
-    nextEl.onerror = function () {
+    preloader.onerror = function () {
+      if (settled) return;
+      settled = true;
+      clearTimeout(loadTimeout);
       clearTimeout(advanceTimer);
       advanceTimer = setTimeout(advance, 600);
     };
-    nextEl.src = photo.path;
+    preloader.src = photo.path;
   }
 
   function advance() {

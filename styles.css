@@ -33,7 +33,7 @@ input, textarea { font-family: inherit; }
 /* ============ Main display page ============ */
 .stage-body {
   overflow: hidden;
-  background: radial-gradient(ellipse at center, #161616 0%, #0a0a0a 75%);
+  background: radial-gradient(ellipse at center, #636363 0%, #575757 75%);
 }
 
 .stage {
@@ -64,7 +64,7 @@ input, textarea { font-family: inherit; }
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-dim);
+  color: var(--text-mid);
   font-family: var(--serif);
   font-style: italic;
   font-size: 22px;
