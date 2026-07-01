@@ -1369,6 +1369,36 @@
       "lens": "酒红镜头90MM/F2.8",
       "note": "",
       "uploadedAt": "2026-07-01T00:25:04.260Z"
+    },
+    {
+      "id": "fc066eac-11f4-43b9-9f6a-80c17350c39b",
+      "filename": "2026-07-01-e5893af5.jpeg",
+      "path": "photos/2026-07-01-e5893af5.jpeg",
+      "date": "2026-07-01",
+      "camera": "SONY DSC-W690",
+      "lens": "",
+      "note": "",
+      "uploadedAt": "2026-07-01T11:30:16.909Z"
+    },
+    {
+      "id": "3b1c9baa-7db1-4d52-a441-28b68dcafa4d",
+      "filename": "2026-07-01-c33ac347.jpeg",
+      "path": "photos/2026-07-01-c33ac347.jpeg",
+      "date": "2026-07-01",
+      "camera": "SONY DSC-W690",
+      "lens": "",
+      "note": "",
+      "uploadedAt": "2026-07-01T11:30:21.217Z"
+    },
+    {
+      "id": "d592ad03-01db-4f00-8bb8-57ba1e7c201a",
+      "filename": "2026-07-01-70094f1f.jpeg",
+      "path": "photos/2026-07-01-70094f1f.jpeg",
+      "date": "2026-07-01",
+      "camera": "",
+      "lens": "",
+      "note": "",
+      "uploadedAt": "2026-07-01T11:30:25.440Z"
     }
   ]
 }
